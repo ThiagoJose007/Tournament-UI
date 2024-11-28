@@ -1,30 +1,21 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GarageScreen : EditorWindow
+public class GarageScreen : MonoBehaviour
 {
-    [SerializeField]
-    private VisualTreeAsset m_VisualTreeAsset = default;
+    public UIDocument uiDocument; // O UIDocument da cena principal
+    public VisualTreeAsset navbarUXML; // O UXML da Navbar
 
-    [MenuItem("Window/UI Toolkit/GarageScreen")]
-    public static void ShowExample()
+    void Start()
     {
-        GarageScreen wnd = GetWindow<GarageScreen>();
-        wnd.titleContent = new GUIContent("GarageScreen");
-    }
+        // Obtenha o rootVisualElement da cena
+        var root = uiDocument.rootVisualElement;
 
-    public void CreateGUI()
-    {
-        // Each editor window contains a root VisualElement object
-        VisualElement root = rootVisualElement;
+        // Carregue o UXML da Navbar
+        VisualElement navbar = navbarUXML.CloneTree();
 
-        // VisualElements objects can contain other VisualElement following a tree hierarchy.
-        VisualElement label = new Label("Hello World! From C#");
-        root.Add(label);
+        // Adicione a Navbar ao layout principal
+        root.Add(navbar);
 
-        // Instantiate UXML
-        VisualElement labelFromUXML = m_VisualTreeAsset.Instantiate();
-        root.Add(labelFromUXML);
     }
 }

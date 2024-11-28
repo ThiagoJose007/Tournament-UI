@@ -1,6 +1,11 @@
 .Panel {
     display: flex;
     flex-direction: row;
+    position: absolute; /* Permite posicionamento customizado */
+    top: 0px;           /* Fixa o Navbar no topo */
+    left: 0px;          /* Alinha ao lado esquerdo */
+    width: 100%;        /* Faz o Navbar ocupar toda a largura */
+    height: 110px;       
     justify-content: flex-start;
     background-color: blue;
     border-radius: 11px;

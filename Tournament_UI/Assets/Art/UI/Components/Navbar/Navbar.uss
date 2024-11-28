@@ -8,6 +8,9 @@
     border-color: rgba(0, 0, 0, 0.2);
     border-bottom-width: 5px;
     border-color: rgb(38, 17, 133);
+    background-image: url("project://database/Assets/Art/Sprites/gradient.png?fileID=2800000&guid=96c9a806a144186468a3a454db630b2f&type=3#gradient");
+    background-repeat: no-repeat no-repeat;
+    background-size: 110% 100%;
 }
 
 .Left_Items {
@@ -31,6 +34,8 @@
     height: 46.33px;
     background-image: url("project://database/Assets/Art/UI/Components/Navbar/Seta.png?fileID=2800000&guid=a424e6d2d1a0b5f4c857d089edd89e69&type=3#Seta");
     background-color: rgba(188, 188, 188, 0);
+    border-width: 0;
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 .container_ticket {
@@ -47,6 +52,7 @@
     -unity-text-outline-width: 3px;
     -unity-text-outline-color: black;
     margin-left: 57px;
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 .Qtd_container {
@@ -68,6 +74,7 @@
     rotate: 10deg;
     margin-left: 10px;
     right: 20%;
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 .container_ticket {
@@ -103,12 +110,13 @@
     -unity-text-align: middle-center;
 }
 
-
 .Gold_Img {
     background-image: url("project://database/Assets/Art/UI/Components/Navbar/GoldenCoin.png?fileID=2800000&guid=745dcb1d1d010934792f1815aaebe7cf&type=3#GoldenCoin");
     width: 53px;
     height: 56px;
+    -unity-background-scale-mode: scale-to-fit;
 }
+
 .shadow_button {
     background-color: rgb(7, 118, 38);
     font-size: 36px;
@@ -125,7 +133,6 @@
     align-self: flex-start;
     -unity-text-align: middle-center;
 }
-
 
 .shadow_button_Gold {
     flex-grow: 1;
@@ -171,6 +178,18 @@
     align-self: center;
     align-items: center;
     margin-right: 56px;
-    margin-left:56px;
+    margin-left: 56px;
 }
 
+
+.home_img {
+    width: 55px;
+    height: 55px;
+    background-image: url("project://database/Assets/Art/UI/Components/Navbar/casa%20(1).png?fileID=2800000&guid=a31c09e81b7ab0a4d80cd33fc404e049&type=3#casa (1)");
+    background-color: rgba(188, 188, 188, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    -unity-background-scale-mode: scale-to-fit;
+}

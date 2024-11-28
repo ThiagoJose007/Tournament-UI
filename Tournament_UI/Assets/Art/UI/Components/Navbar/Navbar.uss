@@ -1,0 +1,176 @@
+.Panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: blue;
+    border-radius: 11px;
+    border-bottom-width: 10px;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-bottom-width: 5px;
+    border-color: rgb(38, 17, 133);
+}
+
+.Left_Items {
+    flex-grow: 1;
+    height: 111px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: auto;
+    align-items: center;
+}
+
+.Right_Items {
+    flex-grow: 1;
+    height: 111px;
+    flex-direction: row;
+}
+
+.Back_Button {
+    margin-left: 53px;
+    width: 30px;
+    height: 46.33px;
+    background-image: url("project://database/Assets/Art/UI/Components/Navbar/Seta.png?fileID=2800000&guid=a424e6d2d1a0b5f4c857d089edd89e69&type=3#Seta");
+    background-color: rgba(188, 188, 188, 0);
+}
+
+.container_ticket {
+    align-self: center;
+    flex-direction: center;
+}
+
+.Title_Info {
+    color: white;
+    font-size: 56px;
+    align-self: center;
+    font-weight: 700;
+    -unity-font-definition: url("project://database/Assets/Art/Fonts/Rajdhani-Bold%20SDF.asset?fileID=11400000&guid=4667bdbfc81df204aa364be4dca76ab8&type=2#Rajdhani-Bold SDF");
+    -unity-text-outline-width: 3px;
+    -unity-text-outline-color: black;
+    margin-left: 57px;
+}
+
+.Qtd_container {
+    flex-grow: 1;
+    height: 105px;
+    width: 394px;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: flex-end;
+    align-self: center;
+}
+
+.ticket_img {
+    background-image: url("project://database/Assets/Art/UI/Components/Navbar/Ticket1.png?fileID=2800000&guid=7c3f6937a647d6f43b408ec56fa991dd&type=3#Ticket1");
+    width: 43.46px;
+    height: 70.06px;
+    rotate: 10deg;
+    margin-left: 10px;
+    right: 20%;
+}
+
+.container_ticket {
+    align-self: center;
+    flex-direction: row;
+    width: 164px;
+}
+
+.ticket_bar {
+    background-color: black;
+    border-radius: 20px;
+    width: 142px;
+    height: 43px;
+    align-self: center;
+    position: absolute;
+}
+
+.Plus_button {
+    color: rgb(20, 117, 47);
+    background-color: rgb(22, 235, 81);
+    font-size: 36px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+    right: 20px;
+    border-radius: 42px;
+    align-content: center;
+    justify-content: center;
+    align-self: flex-start;
+    -unity-text-align: middle-center;
+}
+
+
+.Gold_Img {
+    background-image: url("project://database/Assets/Art/UI/Components/Navbar/GoldenCoin.png?fileID=2800000&guid=745dcb1d1d010934792f1815aaebe7cf&type=3#GoldenCoin");
+    width: 53px;
+    height: 56px;
+}
+.shadow_button {
+    background-color: rgb(7, 118, 38);
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+    right: 24px;
+    top: 7px;
+    border-radius: 42px;
+    align-content: center;
+    justify-content: center;
+    align-self: flex-start;
+    -unity-text-align: middle-center;
+}
+
+
+.shadow_button_Gold {
+    flex-grow: 1;
+    top: -3;
+    right: 20px;
+    background-color: rgb(7, 118, 38);
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+    border-radius: 42px;
+    align-content: center;
+    justify-content: center;
+    align-self: flex-start;
+    -unity-text-align: middle-center;
+}
+
+.Plus_button_gold {
+    top: -10px;
+    right: 15px;
+    color: rgb(20, 117, 47);
+    background-color: rgb(22, 235, 81);
+    font-size: 36px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+    border-radius: 42px;
+    align-content: center;
+    justify-content: center;
+    align-self: flex-start;
+    -unity-text-align: middle-center;
+}
+
+.home_button {
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    margin-right: 56px;
+    margin-left:56px;
+}
+

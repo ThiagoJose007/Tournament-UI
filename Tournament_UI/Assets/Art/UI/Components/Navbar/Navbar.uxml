@@ -1,0 +1,28 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Art/UI/Components/Navbar/Navbar.uss?fileID=7433441132597879392&amp;guid=92a07f31a395fba45bdf5207aeae338f&amp;type=3#Navbar" />
+    <engine:VisualElement name="NavbarPanel" class="Panel">
+        <engine:VisualElement name="Left_Items" class="Left_Items">
+            <engine:Button name="Return_Button" class="Back_Button" />
+            <engine:Label text="GARAGE" name="InfoTitle" class="Title_Info" />
+        </engine:VisualElement>
+        <engine:VisualElement name="Right_Items" class="Right_Items">
+            <engine:VisualElement name="Qtd_Micro" class="Qtd_container">
+                <engine:VisualElement name="Ticket_Qtd" class="container_ticket">
+                    <engine:VisualElement name="Qtd_bar" class="ticket_bar" />
+                    <engine:VisualElement name="Ticket_Img" class="ticket_img" />
+                    <engine:VisualElement name="Shadow_button" class="shadow_button" style="flex-grow: 1;" />
+                    <engine:Button text="+" name="PlusButton" class="Plus_button" />
+                </engine:VisualElement>
+                <engine:VisualElement name="Gold_Qtd" class="container_ticket">
+                    <engine:VisualElement name="Qtd_bar" class="ticket_bar" />
+                    <engine:VisualElement name="Gold_Img" class="Gold_Img" />
+                    <engine:VisualElement name="Shadow_button" class="shadow_button_Gold" style="flex-grow: 1;" />
+                    <engine:Button text="+" name="PlusButton" class="Plus_button_gold" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="Home_Button" class="home_button">
+                <engine:Button style="width: 55px; height: 55px; background-image: url(&quot;project://database/Assets/Art/UI/Components/Navbar/casa%20(1).png?fileID=2800000&amp;guid=a31c09e81b7ab0a4d80cd33fc404e049&amp;type=3#casa (1)&quot;); background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

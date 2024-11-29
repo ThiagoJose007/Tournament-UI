@@ -1,0 +1,47 @@
+.item_container {
+    flex-grow: 1;
+    width: 871px;
+    height: 811px;
+    max-height: 811px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-width: 6px;
+    border-right-width: 6px;
+    border-bottom-width: 6px;
+    border-left-width: 6px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.container_name {
+    flex-grow: 1;
+    width: 184px;
+    height: 70px;
+    max-height: 70px;
+    background-color: rgb(14, 14, 14);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    position: absolute;
+    top: -40px;
+    left: 41px;
+}
+
+.text_name_inventory {
+    width: 100%;
+    height: 80%;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    font-size: 48px;
+    color: rgb(255, 255, 255);
+    -unity-font-definition: url("project://database/Assets/Art/Fonts/Rajdhani-Bold%20SDF.asset?fileID=11400000&guid=4667bdbfc81df204aa364be4dca76ab8&type=2#Rajdhani-Bold SDF");
+    -unity-text-align: middle-center;
+}

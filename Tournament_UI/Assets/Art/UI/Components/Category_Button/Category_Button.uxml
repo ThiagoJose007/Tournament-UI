@@ -1,0 +1,9 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Art/UI/Components/Category_Button/Category_Button.uss?fileID=7433441132597879392&amp;guid=badf8d1c67f7c4d40bc1b35f60609389&amp;type=3#Category_Button" />
+    <engine:VisualElement name="Type_Button" class="type_button">
+        <engine:Button name="Category_Button" class="button_category">
+            <engine:Label text="Label" name="Text_Button" class="text_category_button" />
+            <engine:VisualElement name="Category_img" class="category_img" />
+        </engine:Button>
+    </engine:VisualElement>
+</engine:UXML>

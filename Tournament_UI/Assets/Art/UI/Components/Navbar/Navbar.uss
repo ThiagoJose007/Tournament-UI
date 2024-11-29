@@ -1,11 +1,11 @@
 .Panel {
     display: flex;
     flex-direction: row;
-    position: absolute; /* Permite posicionamento customizado */
-    top: 0px;           /* Fixa o Navbar no topo */
-    left: 0px;          /* Alinha ao lado esquerdo */
-    width: 100%;        /* Faz o Navbar ocupar toda a largura */
-    height: 110px;       
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110px;
     justify-content: flex-start;
     background-color: blue;
     border-radius: 11px;
@@ -114,6 +114,11 @@
     -unity-text-align: middle-center;
 }
 
+.Plus_button:hover{
+    background-color: #077626;
+    color: #16EB51;
+}
+
 .Gold_Img {
     background-image: url("project://database/Assets/Art/UI/Components/Navbar/GoldenCoin.png?fileID=2800000&guid=745dcb1d1d010934792f1815aaebe7cf&type=3#GoldenCoin");
     width: 53px;
@@ -174,6 +179,10 @@
     align-self: flex-start;
     -unity-text-align: middle-center;
 }
+.Plus_button_gold:hover{
+    background-color: #077626;
+    color: #16EB51;
+}
 
 .home_button {
     width: 32px;
@@ -185,7 +194,6 @@
     margin-left: 56px;
 }
 
-
 .home_img {
     width: 55px;
     height: 55px;
@@ -196,4 +204,17 @@
     border-bottom-width: 0;
     border-left-width: 0;
     -unity-background-scale-mode: scale-to-fit;
+}
+
+.count_Qtd {
+    -unity-text-align: middle-left;
+    font-size: 30px;
+    -unity-font-definition: url("project://database/Assets/Art/Fonts/Rajdhani-Bold%20SDF.asset?fileID=11400000&guid=4667bdbfc81df204aa364be4dca76ab8&type=2#Rajdhani-Bold SDF");
+    color: rgb(255, 255, 255);
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    width: 20%;
+    justify-content: center;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
 }

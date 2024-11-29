@@ -8,13 +8,17 @@
         <engine:VisualElement name="Right_Items" class="Right_Items">
             <engine:VisualElement name="Qtd_Micro" class="Qtd_container">
                 <engine:VisualElement name="Ticket_Qtd" class="container_ticket">
-                    <engine:VisualElement name="Qtd_bar" class="ticket_bar" />
+                    <engine:VisualElement name="Qtd_bar" class="ticket_bar">
+                        <engine:Label text="30" class="count_Qtd" style="color: rgb(255, 255, 255); font-size: 30px; justify-content: center; align-items: flex-start; align-self: center; align-content: flex-start; -unity-font-definition: url(&quot;project://database/Assets/Art/Fonts/Rajdhani-Bold%20SDF.asset?fileID=11400000&amp;guid=4667bdbfc81df204aa364be4dca76ab8&amp;type=2#Rajdhani-Bold SDF&quot;); -unity-text-align: middle-left; width: 25%;" />
+                    </engine:VisualElement>
                     <engine:VisualElement name="Ticket_Img" class="ticket_img" />
                     <engine:VisualElement name="Shadow_button" class="shadow_button" />
                     <engine:Button text="+" name="PlusButton" class="Plus_button" />
                 </engine:VisualElement>
                 <engine:VisualElement name="Gold_Qtd" class="container_ticket">
-                    <engine:VisualElement name="Qtd_bar" class="ticket_bar" />
+                    <engine:VisualElement name="Qtd_bar" class="ticket_bar">
+                        <engine:Label text="300" class="count_Qtd" />
+                    </engine:VisualElement>
                     <engine:VisualElement name="Gold_Img" class="Gold_Img" />
                     <engine:VisualElement name="Shadow_button" class="shadow_button_Gold" />
                     <engine:Button text="+" name="PlusButton" class="Plus_button_gold" />

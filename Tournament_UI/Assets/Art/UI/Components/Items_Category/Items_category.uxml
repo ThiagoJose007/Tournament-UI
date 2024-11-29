@@ -1,0 +1,12 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Art/UI/Components/Items_Category/Items_category.uss?fileID=7433441132597879392&amp;guid=e7e5ae3dd6d4cf84a9f8898f3572c472&amp;type=3#Items_category" />
+    <engine:VisualElement name="Item" class="item_container">
+        <engine:VisualElement name="rarity-container" class="rarity">
+            <engine:VisualElement name="Img_rarity" class="img_rarity" />
+            <engine:Label text="EPIC" name="Text_rarity" class="text_rarity" />
+        </engine:VisualElement>
+        <engine:VisualElement name="Car_effect" class="effect" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Sprites/Union.png?fileID=2800000&amp;guid=7f2cf0e0798766d49b309ec299669dfa&amp;type=3#Union&quot;);" />
+        <engine:VisualElement name="Car_Img" class="img_car" />
+        <engine:Button text="EQUIP" focusable="true" double-click-selects-word="true" name="Equip_button" class="equip_button" />
+    </engine:VisualElement>
+</engine:UXML>

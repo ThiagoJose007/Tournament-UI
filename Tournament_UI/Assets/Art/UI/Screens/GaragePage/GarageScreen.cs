@@ -8,7 +8,7 @@ public class GarageScreen : MonoBehaviour
     public VisualTreeAsset buttonCategoryUXML; // O UXML do botão
 
     // Informações para personalizar os botões
-    private readonly string[] buttonTexts = { "Skins", "Color", "Wheels", "Acessories", "Bumper", "Spoiler" };
+    private readonly string[] buttonTexts = { "Skins", "Color", "Wheels", "Accessories", "Bumper", "Spoiler" };
     public Sprite[] buttonImages; // Imagens para os botões (atribuídas no Inspector)
 
     void Start()
@@ -21,25 +21,35 @@ public class GarageScreen : MonoBehaviour
         root.Add(navbar);
 
         // Crie um contêiner para os botões
-        var buttonContainer = new VisualElement();
-        buttonContainer.style.flexDirection = FlexDirection.Column;
-        buttonContainer.style.alignItems = Align.FlexStart;
-        buttonContainer.style.paddingLeft = 30;
-        buttonContainer.style.marginTop = 150;
+        var buttonContainer = new VisualElement
+        {
+            style =
+            {
+                flexDirection = FlexDirection.Column,
+                alignItems = Align.FlexStart,
+                paddingLeft = 30,
+                marginTop = 150
+            }
+        };
         root.Add(buttonContainer);
 
         // Crie e personalize os botões
         for (int i = 0; i < buttonTexts.Length; i++)
         {
+            // Clone o UXML do botão
             var buttonElement = buttonCategoryUXML.CloneTree();
 
+            // Atribua o nome do botão com base no texto da categoria
+            string buttonName = buttonTexts[i]; // Usando o texto da categoria como nome
+            buttonElement.name = buttonName.ToLower().Replace(" ", "-"); // Convertendo para lowercase e substituindo espaços por hífens
+
             // Atualize o texto
-            var buttonText = buttonElement.Q<Label>(className: "text_category_button"); // Use a classe para buscar o texto
+            var buttonText = buttonElement.Q<Label>(className: "text_category_button");
             if (buttonText != null)
                 buttonText.text = buttonTexts[i];
 
             // Atualize a imagem
-            var buttonImage = buttonElement.Q<VisualElement>(className: "category_img"); // Use a classe para buscar a imagem
+            var buttonImage = buttonElement.Q<VisualElement>(className: "category_img");
             if (buttonImage != null && buttonImages != null && i < buttonImages.Length)
             {
                 buttonImage.style.backgroundImage = new StyleBackground(buttonImages[i].texture);
@@ -47,6 +57,8 @@ public class GarageScreen : MonoBehaviour
 
             // Adicione o botão ao contêiner
             buttonContainer.Add(buttonElement);
+
         }
     }
-}
+
+    }

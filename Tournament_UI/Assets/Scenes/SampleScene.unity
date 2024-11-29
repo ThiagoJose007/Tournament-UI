@@ -492,6 +492,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 1267781947}
   navbarUXML: {fileID: 9197481963319205126, guid: 28b3e991b0d6f2e439a9fcbf3bacdb5f, type: 3}
+  buttonCategoryUXML: {fileID: 9197481963319205126, guid: 6e1a4ab31acefff48b79bfb6fd044cf5, type: 3}
+  buttonImages:
+  - {fileID: 21300000, guid: c8afc29c80f933d48b33743c9b2c0bcf, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

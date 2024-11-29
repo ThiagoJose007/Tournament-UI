@@ -9,8 +9,7 @@
     justify-content: flex-start;
     background-color: blue;
     border-radius: 11px;
-    border-bottom-width: 10px;
-    border-color: rgba(0, 0, 0, 0.2);
+    text-shadow: 0 10px 3px rgba(0, 0, 0, 0.3);
     border-bottom-width: 5px;
     border-color: rgb(38, 17, 133);
     background-image: url("project://database/Assets/Art/Sprites/gradient.png?fileID=2800000&guid=96c9a806a144186468a3a454db630b2f&type=3#gradient");

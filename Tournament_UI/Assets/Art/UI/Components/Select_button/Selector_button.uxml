@@ -1,0 +1,8 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Art/UI/Components/Select_button/Selector_button.uss?fileID=7433441132597879392&amp;guid=86e30b60c64633b42872cef4cd6f91ec&amp;type=3#Selector_button" />
+    <engine:VisualElement name="Selector_Button" class="container_button_selector">
+        <engine:Button text="Button" class="select_button">
+            <engine:VisualElement name="Select_img" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Sprites/skin.png?fileID=2800000&amp;guid=c8afc29c80f933d48b33743c9b2c0bcf&amp;type=3#skin&quot;); background-size: 101px 67px; width: 101px; height: 67px; background-position-y: top 20px;" />
+        </engine:Button>
+    </engine:VisualElement>
+</engine:UXML>

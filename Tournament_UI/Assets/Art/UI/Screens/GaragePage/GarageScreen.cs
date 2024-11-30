@@ -6,6 +6,8 @@ public class GarageScreen : MonoBehaviour
     public UIDocument uiDocument; // O UIDocument da cena principal
     public VisualTreeAsset navbarUXML; // O UXML da Navbar
     public VisualTreeAsset buttonCategoryUXML; // O UXML do botão
+    public VisualTreeAsset Select_buttonUXML;
+    public VisualTreeAsset ItemContainerUXML;
 
     // Informações para personalizar os botões
     private readonly string[] buttonTexts = { "Skins", "Color", "Wheels", "Accessories", "Bumper", "Spoiler" };
@@ -15,29 +17,23 @@ public class GarageScreen : MonoBehaviour
     {
         // Obtenha o rootVisualElement da cena
         var root = uiDocument.rootVisualElement;
+        uiDocument = GetComponent<UIDocument>();
 
         // Carregue o UXML da Navbar
-        VisualElement navbar = navbarUXML.CloneTree();
-        root.Add(navbar);
+        VisualElement navbar = navbarUXML.Instantiate();
+        uiDocument.rootVisualElement.Q("Navbar").Add(navbar);
 
-        // Crie um contêiner para os botões
-        var buttonContainer = new VisualElement
-        {
-            style =
-            {
-                flexDirection = FlexDirection.Column,
-                alignItems = Align.FlexStart,
-                paddingLeft = 30,
-                marginTop = 150
-            }
-        };
-        root.Add(buttonContainer);
+        VisualElement select_button = Select_buttonUXML.Instantiate();
+        uiDocument.rootVisualElement.Q("Aba_Choose").Add(select_button);
+
+        VisualElement itemContainer = ItemContainerUXML.Instantiate();
+        uiDocument.rootVisualElement.Q("Inventory").Add(itemContainer);
 
         // Crie e personalize os botões
         for (int i = 0; i < buttonTexts.Length; i++)
         {
             // Clone o UXML do botão
-            var buttonElement = buttonCategoryUXML.CloneTree();
+            var buttonElement = buttonCategoryUXML.Instantiate();
 
             // Atribua o nome do botão com base no texto da categoria
             string buttonName = buttonTexts[i]; // Usando o texto da categoria como nome
@@ -56,9 +52,11 @@ public class GarageScreen : MonoBehaviour
             }
 
             // Adicione o botão ao contêiner
-            buttonContainer.Add(buttonElement);
+            uiDocument.rootVisualElement.Q("Select_Category").Add(buttonElement);
 
         }
+
     }
+
 
     }

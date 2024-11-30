@@ -493,6 +493,8 @@ MonoBehaviour:
   uiDocument: {fileID: 1267781947}
   navbarUXML: {fileID: 9197481963319205126, guid: 28b3e991b0d6f2e439a9fcbf3bacdb5f, type: 3}
   buttonCategoryUXML: {fileID: 9197481963319205126, guid: 6e1a4ab31acefff48b79bfb6fd044cf5, type: 3}
+  Select_buttonUXML: {fileID: 9197481963319205126, guid: 8aa43c998f45edf41822afa7e131a1cc, type: 3}
+  ItemContainerUXML: {fileID: 9197481963319205126, guid: cca2ef69329551e4c8a6f90ab8787b36, type: 3}
   buttonImages:
   - {fileID: 21300000, guid: c8afc29c80f933d48b33743c9b2c0bcf, type: 3}
   - {fileID: 21300000, guid: c761eb4c200d92841a3a7f3a9e64f672, type: 3}

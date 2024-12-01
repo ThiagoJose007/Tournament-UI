@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
+using System;
 
 public class ItemContainer : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class ItemContainer : MonoBehaviour
 
         // Localiza o contêiner onde os itens serão adicionados
         VisualElement itemContainer = uiInventory.rootVisualElement.Q("ItemContainer");
-
         foreach (Item item in items)
         {
             // Instancia um novo elemento a partir do template
@@ -23,6 +23,8 @@ public class ItemContainer : MonoBehaviour
 
             // Adiciona o elemento ao contêiner
             itemContainer.Add(itemElement);
+            itemElement.AddToClassList("item");  // Adiciona a classe "item" para cada item
+
         }
         if (itemContainer.childCount > 0)
         {
@@ -33,6 +35,7 @@ public class ItemContainer : MonoBehaviour
                 SetActiveButton(firstButton);  // Define o primeiro botão como ativo
             }
         }
+
     }
 
     // Método para criar e configurar um elemento de item
@@ -42,6 +45,7 @@ public class ItemContainer : MonoBehaviour
         var itemElement = itemTemplate.Instantiate();
 
         // Configura os elementos internos
+        ConfigureElement(itemElement, "Item_Body", item.Item_body?.texture);
         ConfigureElement(itemElement, "Img_rarity", item.img_rarity?.texture);
         ConfigureElement(itemElement, "Car_Img", item.car_img?.texture);
         ConfigureElement(itemElement, "Car_effect", item.car_effect?.texture);
@@ -55,6 +59,11 @@ public class ItemContainer : MonoBehaviour
 
         return itemElement;
         // Define o primeiro botão como ativo
+    }
+
+    internal static object Q<T>(string className)
+    {
+        throw new NotImplementedException();
     }
 
     // Método auxiliar para configurar um elemento visual com uma imagem

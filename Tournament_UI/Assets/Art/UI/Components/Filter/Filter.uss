@@ -1,0 +1,23 @@
+.filter_button {
+    width: 130px;
+    height: 45px;
+    -unity-font-definition: url("project://database/Assets/Art/Fonts/Rajdhani-Bold%20SDF.asset?fileID=11400000&guid=4667bdbfc81df204aa364be4dca76ab8&type=2#Rajdhani-Bold SDF");
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-width: 6px;
+    -unity-text-outline-color: rgb(0, 0, 0);
+    background-color: rgb(139, 139, 139);
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    text-shadow: 0 10px 0 rgb(0, 0, 0);
+}

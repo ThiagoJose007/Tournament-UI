@@ -52,6 +52,7 @@ public class GarageScreen : MonoBehaviour
 
             // Atualize a imagem
             var buttonImage = buttonElement.Q<VisualElement>(className: "category_img");
+            var buttonbackground = buttonElement.Q<VisualElement>("Category_Button");
             if (buttonImage != null && buttonImages != null && i < buttonImages.Length)
             {
                 buttonImage.style.backgroundImage = new StyleBackground(buttonImages[i].texture);
@@ -59,7 +60,7 @@ public class GarageScreen : MonoBehaviour
 
             if (i == 0)
             {
-                buttonElement.AddToClassList("button_category-active");
+                buttonbackground.AddToClassList("button_category-active");
             }
 
             // Registrar o evento de clique no botão
@@ -69,11 +70,12 @@ public class GarageScreen : MonoBehaviour
                 var allButtons = uiDocument.rootVisualElement.Q("Select_Category").Children();
                 foreach (var button in allButtons)
                 {
-                    button.RemoveFromClassList("button_category-active");
+                    var buttonElement = button.Q<VisualElement>("Category_Button");
+                    buttonElement.RemoveFromClassList("button_category-active");
                 }
 
                 // Adicionar a classe "active" ao botão clicado
-                buttonElement.AddToClassList("button_category-active");
+                buttonbackground.AddToClassList("button_category-active");
             });
             // Adicione o botão ao contêiner
             uiDocument.rootVisualElement.Q("Select_Category").Add(buttonElement);

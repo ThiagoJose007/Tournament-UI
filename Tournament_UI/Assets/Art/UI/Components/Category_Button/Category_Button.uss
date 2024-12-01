@@ -37,7 +37,7 @@
 
 .button_category-active {
     background-image: url("project://database/Assets/Art/Sprites/box_gradient.png?fileID=2800000&guid=fa0317b4ad42b98479dcae28d6c9fee0&type=3#box_gradient");
-    background-size: 500% 500%;
+    background-size: cover;
 
 }
 

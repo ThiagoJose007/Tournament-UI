@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Art/UI/Components/Item_Container/itemContainer.uss?fileID=7433441132597879392&amp;guid=dd447ed6a34a96c43acbd0733aded7bc&amp;type=3#itemContainer" />
-    <engine:VisualElement name="ItemContainer" class="item_container">
+    <engine:VisualElement name="ItemContainer" class="item_container" style="flex-direction: row;">
         <engine:VisualElement name="Name_containter" class="container_name">
             <engine:Label text="Label" name="Name_inventory" class="text_name_inventory" />
         </engine:VisualElement>

@@ -1,96 +1,103 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Collections.Generic;
 
 public class ItemContainer : MonoBehaviour
 {
-    // Referência ao Prefab do item de skin (deve ser um GameObject que tenha UI Toolkit)
-    public VisualTreeAsset skinItemPrefab;  // Arraste o Prefab aqui pelo Inspector
+    UIDocument uiInventory;
+    public VisualTreeAsset itemTemplate;
+    public List<Item> items;
+    private VisualElement currentlyActiveButton; // Referência ao botão ativo
 
-    // Lista de imagens que serão usadas nos botões (categorias)
-    public Sprite[] Images;  // Imagens para as categorias (Skins, Wheels, etc.)
-
-    // Texto para cada botão (categoria)
-    private readonly string[] buttonTexts = { "Skins", "Color", "Wheels", "Accessories", "Bumper", "Spoiler" };
-
-    private VisualElement itemContainer;
-
-    void Start()
+    public void OnEnable()
     {
-        // Referência ao container onde os itens serão adicionados (isso seria um VisualElement na UI do seu Canvas)
-        itemContainer = GetComponent<UIDocument>().rootVisualElement.Q<VisualElement>("ItemContainer");
+        uiInventory = GetComponent<UIDocument>();
 
-        // Teste: Adicionar uma nova skin
-        AddNewSkin("Car1", "Rare", "Assets/Images/Car1.png", "Assets/Images/Background1.png", "Assets/Images/Effect1.png");
+        // Localiza o contêiner onde os itens serão adicionados
+        VisualElement itemContainer = uiInventory.rootVisualElement.Q("ItemContainer");
+
+        foreach (Item item in items)
+        {
+            // Instancia um novo elemento a partir do template
+            var itemElement = CreateItemElement(item);
+
+            // Adiciona o elemento ao contêiner
+            itemContainer.Add(itemElement);
+        }
+        if (itemContainer.childCount > 0)
+        {
+            var firstButton = itemContainer[0].Q<Button>("Equip_button"); // Substitua "InnerButtonName" pelo nome do seu botão real
+
+            if (firstButton != null)
+            {
+                SetActiveButton(firstButton);  // Define o primeiro botão como ativo
+            }
+        }
     }
 
-    // Função para adicionar uma nova skin ao inventário
-    private void AddNewSkin(string carName, string rarity, string carImagePath, string backgroundImagePath, string effectImagePath)
+    // Método para criar e configurar um elemento de item
+    private VisualElement CreateItemElement(Item item)
     {
-        // Instanciando o item de skin do Prefab usando VisualTreeAsset
-        VisualElement skinItem = skinItemPrefab.CloneTree();  // Clona o UXML do prefab
+        // Instancia o template
+        var itemElement = itemTemplate.Instantiate();
 
-        // Alterando os valores do item de skin
-        var carImage = skinItem.Q<Image>("Car_img");
-        var rarityImage = skinItem.Q<Image>("Img_rarity");
-        var carEffect = skinItem.Q<Image>("Car_effect");
-        var rarityText = skinItem.Q<Label>("text_rarity");
-        var itemBackground = skinItem.Q<VisualElement>("Item");
+        // Configura os elementos internos
+        ConfigureElement(itemElement, "Img_rarity", item.img_rarity?.texture);
+        ConfigureElement(itemElement, "Car_Img", item.car_img?.texture);
+        ConfigureElement(itemElement, "Car_effect", item.car_effect?.texture);
 
-        // Definindo as imagens e texto
-        carImage.image = AssetDatabase.LoadAssetAtPath<Texture2D>(carImagePath);  // Definindo imagem do carro
-        rarityImage.image = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/" + rarity + "Rarity.png");  // Definindo imagem da raridade
-        carEffect.image = AssetDatabase.LoadAssetAtPath<Texture2D>(effectImagePath);  // Definindo efeito de fundo
-        rarityText.text = rarity;  // Definindo texto de raridade
+        var rarityTextElement = itemElement.Q<Label>("Text_rarity");
+        if (rarityTextElement != null)
+            rarityTextElement.text = item.text_rarity;
 
-        // Definindo imagem de fundo
-        var bgTexture = AssetDatabase.LoadAssetAtPath<Texture2D>(backgroundImagePath);
-        itemBackground.style.backgroundImage = new StyleBackground(bgTexture);
+        // Configura o botão interno para detectar cliques
+        ConfigureButton(itemElement, item);
 
-        // Adicionando o item de skin ao container
-        itemContainer.Add(skinItem);
+        return itemElement;
+        // Define o primeiro botão como ativo
     }
 
-    // Função para configurar os botões (categorias)
-    private void ConfigureButtons()
+    // Método auxiliar para configurar um elemento visual com uma imagem
+    private void ConfigureElement(VisualElement parent, string elementName, Texture2D texture)
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
-
-        // Crie um contêiner para os botões
-        var buttonContainer = new VisualElement
+        var element = parent.Q<VisualElement>(elementName);
+        if (element != null && texture != null)
         {
-            style =
-            {
-                flexDirection = FlexDirection.Column,
-                alignItems = Align.FlexStart,
-                paddingLeft = 30,
-                marginTop = 150
-            }
-        };
-        root.Add(buttonContainer);
+            element.style.backgroundImage = new StyleBackground(texture);
+        }
+    }
 
-        // Crie e personalize os botões
-        for (int i = 0; i < buttonTexts.Length; i++)
+    // Método para configurar o clique no botão interno
+    private void ConfigureButton(VisualElement itemElement, Item item)
+    {
+        var button = itemElement.Q<Button>("Equip_button"); // Substitua "InnerButtonName" pelo nome real do botão no UXML
+        if (button != null)
         {
-            var buttonElement = new Button();  // Cria um botão novo
-            buttonElement.text = buttonTexts[i];  // Define o texto do botão
-
-            // Atribui a imagem à categoria
-            if (i < Images.Length)
+            button.RegisterCallback<ClickEvent>((evt) =>
             {
-                buttonElement.style.backgroundImage = new StyleBackground(Images[i].texture);
-            }
-
-            // Adiciona o botão ao contêiner
-            buttonContainer.Add(buttonElement);
-
-            // Ação de clique (aqui você pode adicionar a lógica para instanciar itens relacionados)
-            int index = i; // Captura o valor de i corretamente
-            buttonElement.RegisterCallback<ClickEvent>(evt =>
-            {
-                // Exemplo de ação ao clicar no botão (aqui você pode chamar uma função para instanciar os itens dessa categoria)
-                Debug.Log($"Botão {buttonTexts[index]} clicado.");
+                SetActiveButton(button);  // Define o botão como ativo
+                button.text = "EQUIPPED";  // Altera o texto do botão para "EQUIPPED"
+                Debug.Log($"O botão do item '{item.displayName}' foi clicado e agora está marcado como 'EQUIPPED'!");
             });
         }
+    }
+
+    // Define o botão clicado como ativo
+    private void SetActiveButton(VisualElement button)
+    {
+        // Remove o estado ativo do botão anterior
+        if (currentlyActiveButton != null)
+        {
+            currentlyActiveButton.RemoveFromClassList("active");
+        }
+        else
+        {
+            currentlyActiveButton = button;
+            currentlyActiveButton.AddToClassList("active");
+        }
+
+        // Define o botão atual como ativo
+        currentlyActiveButton = button;
+        currentlyActiveButton.AddToClassList("active");
     }
 }

@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Art/UI/Components/Items_Category/Items_category.uss?fileID=7433441132597879392&amp;guid=e7e5ae3dd6d4cf84a9f8898f3572c472&amp;type=3#Items_category" />
-    <engine:VisualElement name="Item" class="item_container">
+    <engine:VisualElement name="Item_Body" class="item_container">
         <engine:VisualElement name="rarity-container" class="rarity">
             <engine:VisualElement name="Img_rarity" class="img_rarity" />
             <engine:Label text="EPIC" name="Text_rarity" class="text_rarity" />

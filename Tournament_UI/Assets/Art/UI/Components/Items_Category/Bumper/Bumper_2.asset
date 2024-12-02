@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dba55f792298d764687c8523b554bc07, type: 3}
-  m_Name: Car_2
+  m_Name: Bumper_2
   m_EditorClassIdentifier: 
-  displayName: Car_2
+  displayName: Bumper_2
   Item_body: {fileID: 21300000, guid: c3e99db8fa86651458856299ab3a0176, type: 3}
   img_rarity: {fileID: 21300000, guid: 151241665b3ad7c44b62993cc0a4c628, type: 3}
   text_rarity: LEGENDARY
   car_effect: {fileID: 21300000, guid: a0e416a5542ece44c8de6de09b5a3928, type: 3}
-  car_img: {fileID: 21300000, guid: 271e6ecb0d33166478474ec2ef186275, type: 3}
+  car_img: {fileID: 21300000, guid: b5aa7719e29820940ab2ddc446422d01, type: 3}

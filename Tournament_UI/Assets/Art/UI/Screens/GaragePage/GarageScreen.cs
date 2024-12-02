@@ -11,7 +11,12 @@ public class GarageScreen : MonoBehaviour
     public VisualTreeAsset ItemContainerUXML;
     public VisualTreeAsset FilterUXML;
     public VisualTreeAsset itemTemplate;
+    // Dicionário para mapear categorias para listas de itens
     public List<Item> items;
+    public List<Item> wheelItems = new List<Item>();
+    public List<Item> accessoryItems = new List<Item>();
+    public List<Item> bumperItems = new List<Item>();
+
     private VisualElement currentlyActiveButton;
 
     // Informações para personalizar os botões
@@ -26,19 +31,17 @@ public class GarageScreen : MonoBehaviour
 
         // Carregue o UXML da Navbar
         VisualElement navbar = navbarUXML.Instantiate();
-        uiDocument.rootVisualElement.Q("Navbar").Add(navbar);
+        root.Q("Navbar").Add(navbar);
 
         VisualElement select_button = Select_buttonUXML.Instantiate();
-        uiDocument.rootVisualElement.Q("Aba_Choose").Add(select_button);
+        root.Q("Aba_Choose").Add(select_button);
 
         var Button_active = select_button.Q<VisualElement>("Button");
         Button_active.AddToClassList("select_button-active");
 
-
         VisualElement itemContainer = ItemContainerUXML.Instantiate();
-        uiDocument.rootVisualElement.Q("Inventory").Add(itemContainer);
+        root.Q("Inventory").Add(itemContainer);
         var ContainerText = itemContainer.Q<Label>("Name_inventory");
-
 
         // Crie e personalize os botões
         for (int i = 0; i < buttonTexts.Length; i++)
@@ -46,75 +49,122 @@ public class GarageScreen : MonoBehaviour
             // Clone o UXML do botão
             var buttonElement = buttonCategoryUXML.Instantiate();
 
-            // Atribua o nome do botão com base no texto da categoria
-            string buttonName = buttonTexts[i]; // Usando o texto da categoria como nome
-            buttonElement.name = buttonName.ToLower().Replace(" ", "-"); // Convertendo para lowercase e substituindo espaços por hífens
-
-            // Atualize o texto
+            // Atribua o nome e o texto do botão
+            string buttonName = buttonTexts[i];
+            buttonElement.name = buttonName.ToLower().Replace(" ", "-");
             var buttonText = buttonElement.Q<Label>(className: "text_category_button");
             if (buttonText != null)
-                buttonText.text = buttonTexts[i];
+                buttonText.text = buttonName;
 
-            // Atualize a imagem
+            // Atribua a imagem ao botão
             var buttonImage = buttonElement.Q<VisualElement>(className: "category_img");
-            var buttonbackground = buttonElement.Q<VisualElement>("Category_Button");
+            var buttonBackground = buttonElement.Q<VisualElement>("Category_Button");
             if (buttonImage != null && buttonImages != null && i < buttonImages.Length)
             {
                 buttonImage.style.backgroundImage = new StyleBackground(buttonImages[i].texture);
             }
 
+            // Adicione a classe "active" ao primeiro botão
             if (i == 0)
             {
-                buttonbackground.AddToClassList("button_category-active");
-                buttonText.text = buttonTexts[i];
+                buttonBackground.AddToClassList("button_category-active");
+                UpdateNameContainer(buttonName);
+                UpdateItemContainer(items); // Mostra os itens da primeira categoria por padrão
             }
 
-            // Registrar o evento de clique no botão
+            // Registrar evento de clique no botão
             buttonElement.RegisterCallback<ClickEvent>(evt =>
             {
-                // Remover a classe "active" de todos os botões
-                var allButtons = uiDocument.rootVisualElement.Q("Select_Category").Children();
+                // Remove a classe "active" de todos os botões
+                var allButtons = root.Q("Select_Category").Children();
                 foreach (var button in allButtons)
                 {
-                    var buttonElement = button.Q<VisualElement>("Category_Button");
-                    buttonElement.RemoveFromClassList("button_category-active");
+                    var buttonBackground = button.Q<VisualElement>("Category_Button");
+                    buttonBackground.RemoveFromClassList("button_category-active");
                 }
 
-                // Adicionar a classe "active" ao botão clicado
-                buttonbackground.AddToClassList("button_category-active");
+                // Adiciona a classe "active" ao botão clicado
+                buttonBackground.AddToClassList("button_category-active");
+
+                // Atualiza o texto do NameContainer e o inventário
+                UpdateNameContainer(buttonName);
+                var inventory = uiDocument.rootVisualElement.Q("ItemContainer");
+                switch (buttonName)
+                {
+                    case "Skins":
+                        UpdateItemContainer(items);
+                        break;
+                    case "Color":
+                        inventory.Clear();
+                        break;
+                    case "Wheels":
+                        UpdateItemContainer(wheelItems);
+                        break;
+                    case "Accessories":
+                        UpdateItemContainer(accessoryItems);
+                        break;
+                    case "Bumper":
+                        UpdateItemContainer(bumperItems);
+                        break;
+                    case "Spoiler":
+                        inventory.Clear();
+                        break;
+                }
             });
+
             // Adicione o botão ao contêiner
-            uiDocument.rootVisualElement.Q("Select_Category").Add(buttonElement);
-
+            root.Q("Select_Category").Add(buttonElement);
         }
 
+        // Configura o filtro
+        VisualElement filter = FilterUXML.Instantiate();
+        root.Q("Filter").Add(filter);
 
-        // Localiza o contêiner onde os itens serão adicionados
-        VisualElement Inventory = uiDocument.rootVisualElement.Q("ItemContainer");
-        VisualElement Filter = FilterUXML.Instantiate();
-        uiDocument.rootVisualElement.Q("Filter").Add(Filter);
-        foreach (Item item in items)
-        {
-            // Instancia um novo elemento a partir do template
-            var itemElement = CreateItemElement(item);
-
-            // Adiciona o elemento ao contêiner
-            Inventory.Add(itemElement);
-            itemElement.AddToClassList("item");  // Adiciona a classe "item" para cada item
-
-        }
-        if (itemContainer.childCount > 0)
-        {
-            var firstButton = Inventory[0].Q<Button>("Equip_button"); // Substitua "InnerButtonName" pelo nome do seu botão real
-
-            if (firstButton != null)
-            {
-                SetActiveButton(firstButton);  // Define o primeiro botão como ativo
-            }
-        }
-
+        // Configura os itens iniciais
+        UpdateItemContainer(items);
     }
 
+    private void UpdateItemContainer(List<Item> itemList)
+    {
+        // Localiza o contêiner de itens
+        var inventory = uiDocument.rootVisualElement.Q("ItemContainer");
+        if (inventory == null)
+        {
+            Debug.LogError("Elemento 'ItemContainer' não encontrado!");
+            return;
+        }
+
+        // Limpa os itens existentes
+        inventory.Clear();
+
+        // Adiciona os itens da lista ao contêiner
+        foreach (var item in itemList)
+        {
+            var itemElement = CreateItemElement(item);
+            inventory.Add(itemElement);
+            itemElement.AddToClassList("item");  // Adiciona a classe "item" para cada item
+        }
+
+        // Configura o primeiro botão como ativo, se houver itens
+        if (inventory.childCount > 0)
+        {
+            var firstButton = inventory[0].Q<Button>("Equip_button");
+            if (firstButton != null)
+            {
+                SetActiveButton(firstButton);
+                firstButton.text = "EQUIPPED";
+            }
+        }
+    }
+
+    private void UpdateNameContainer(string categoryName)
+    {
+        var nameContainer = uiDocument.rootVisualElement.Q<Label>("Name_inventory");
+        if (nameContainer != null)
+        {
+            nameContainer.text = categoryName;
+        }
+    }
     // Método para criar e configurar um elemento de item
     private VisualElement CreateItemElement(Item item)
     {
@@ -164,22 +214,20 @@ public class GarageScreen : MonoBehaviour
     }
 
     // Define o botão clicado como ativo
-    private void SetActiveButton(VisualElement button)
+    private void SetActiveButton(Button button)
     {
-        // Remove o estado ativo do botão anterior
-        if (currentlyActiveButton != null)
+        // Remove o estado ativo de todos os botões
+        var allButtons = uiDocument.rootVisualElement.Query<Button>("Equip_button").ToList();
+        foreach (var btn in allButtons)
         {
-            currentlyActiveButton.RemoveFromClassList("active");
-        }
-        else
-        {
-            currentlyActiveButton = button;
-            currentlyActiveButton.AddToClassList("active");
+            btn.RemoveFromClassList("active");
+            btn.text = "EQUIP"; // Reseta o texto dos outros botões
         }
 
         // Define o botão atual como ativo
+        button.AddToClassList("active");
+        button.text = "EQUIPPED";
         currentlyActiveButton = button;
-        currentlyActiveButton.AddToClassList("active");
     }
 
 }

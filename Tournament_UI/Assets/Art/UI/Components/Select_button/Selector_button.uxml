@@ -2,14 +2,14 @@
     <Style src="project://database/Assets/Art/UI/Components/Select_button/Selector_button.uss?fileID=7433441132597879392&amp;guid=86e30b60c64633b42872cef4cd6f91ec&amp;type=3#Selector_button" />
     <engine:VisualElement name="Body" style="flex-grow: 1; flex-direction: row;">
         <engine:VisualElement style="flex-grow: 1; flex-direction: row; align-content: center; justify-content: center;">
-            <engine:VisualElement name="Selector_Button" class="container_button_selector" style="margin-right: 20px;">
-                <engine:Button text="Button" name="Button" class="select_button">
-                    <engine:VisualElement name="Select_img" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Sprites/skin.png?fileID=2800000&amp;guid=c8afc29c80f933d48b33743c9b2c0bcf&amp;type=3#skin&quot;); background-size: 80% 50%; width: 101px; height: 67px; background-position-y: top 20px;" />
+            <engine:VisualElement name="Selector_Button" class="container_button_selector" style="margin-right: 20px; width: 162px; height: 162px; min-height: auto; min-width: auto; max-height: none; max-width: none; flex-basis: 50%;">
+                <engine:Button text="Button" name="Button" class="select_button" style="flex-basis: 100%; flex-shrink: 1; flex-grow: 1; height: 162px; width: 162px; max-width: 60%; max-height: 60%; font-size: 15%; align-self: flex-end;">
+                    <engine:VisualElement name="Select_img" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Sprites/skin.png?fileID=2800000&amp;guid=c8afc29c80f933d48b33743c9b2c0bcf&amp;type=3#skin&quot;); background-size: 80% 50%; width: 101px; height: 67px; background-position-y: top 50%; flex-basis: 100%; max-height: 70%; max-width: 90%; font-size: 20%;" />
                 </engine:Button>
             </engine:VisualElement>
-            <engine:VisualElement name="Player_Button" class="container_button_selector">
-                <engine:Button text="Driver" class="select_button" style="background-color: rgb(14, 14, 14);">
-                    <engine:VisualElement name="Select_img" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Sprites/Layer%2023.png?fileID=2800000&amp;guid=ee5d77d36a20dce4cb5a0f70d6f684da&amp;type=3#Layer 23&quot;); background-size: 65% 50%; width: 101px; height: 67px; background-position-y: top 15px;" />
+            <engine:VisualElement name="Player_Button" class="container_button_selector" style="max-height: none; max-width: none; height: 162px; width: 162px; min-height: auto; min-width: auto; align-self: flex-start; flex-basis: 50%;">
+                <engine:Button text="Driver" class="select_button" style="background-color: rgb(14, 14, 14); flex-basis: 100%; flex-grow: 1; flex-shrink: 1; font-size: 15%; height: 162px; width: 162px; max-height: 60%; max-width: 60%; background-position-y: top 30px; align-self: flex-start;">
+                    <engine:VisualElement name="Select_img" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Sprites/Layer%2023.png?fileID=2800000&amp;guid=ee5d77d36a20dce4cb5a0f70d6f684da&amp;type=3#Layer 23&quot;); background-size: 50% 60%; width: 101px; height: 81px; background-position-y: top 10%;" />
                 </engine:Button>
             </engine:VisualElement>
         </engine:VisualElement>

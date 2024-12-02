@@ -1,12 +1,12 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Art/UI/Components/Items_Category/Items_category.uss?fileID=7433441132597879392&amp;guid=e7e5ae3dd6d4cf84a9f8898f3572c472&amp;type=3#Items_category" />
-    <engine:VisualElement name="Item_Body" class="item_container">
-        <engine:VisualElement name="rarity-container" class="rarity">
+    <engine:VisualElement name="Item_Body" class="item_container" style="flex-basis: 30%; max-height: 294px; height: 294px;">
+        <engine:VisualElement name="rarity-container" class="rarity" style="flex-basis: 70%; width: 40%; height: 10%; max-height: 100px; max-width: 100px;">
             <engine:VisualElement name="Img_rarity" class="img_rarity" />
             <engine:Label text="EPIC" name="Text_rarity" class="text_rarity" />
         </engine:VisualElement>
-        <engine:VisualElement name="Car_effect" class="effect" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Sprites/Union.png?fileID=2800000&amp;guid=7f2cf0e0798766d49b309ec299669dfa&amp;type=3#Union&quot;);" />
-        <engine:VisualElement name="Car_Img" class="img_car" />
-        <engine:Button text="EQUIP" focusable="true" double-click-selects-word="true" name="Equip_button" class="equip_button" />
+        <engine:VisualElement name="Car_effect" class="effect" />
+        <engine:VisualElement name="Car_Img" class="img_car" style="flex-basis: 80%; height: 70%; width: 80%; max-height: 200px; align-self: center; align-items: auto; align-content: center; -unity-text-align: middle-left; justify-content: flex-start; top: 25px; right: 21px; max-width: 200px;" />
+        <engine:Button text="EQUIP" focusable="true" double-click-selects-word="true" name="Equip_button" class="equip_button" style="flex-shrink: 1; flex-basis: 30%; flex-grow: 0; background-size: cover; width: 60%; height: 0; max-height: 12%; margin-top: 100%;" />
     </engine:VisualElement>
 </engine:UXML>

@@ -1,0 +1,37 @@
+.body-geral {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    background-image: none;
+    padding: 10px;
+}
+
+.category_itens {
+    max-width: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+
+.navbar_top {
+    display: flex;
+    width: 100%;
+    height: 10%;
+    max-height: 110px;
+    min-height: 10%;
+}
+
+
+.car_view {
+    flex-grow: 1;
+    width: 800px;
+    max-width: 800px;
+    height: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    min-width: 800px;
+}

@@ -1,6 +1,14 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Art/UI/Components/Filter/Filter.uss?fileID=7433441132597879392&amp;guid=0f79757d0b74698468cff3798f0f256f&amp;type=3#Filter" />
     <engine:VisualElement name="Filter" style="flex-grow: 1; width: 100%; height: 20%; max-height: 20%; flex-direction: row;">
-        <engine:Button text="ALL" class="filter_button" />
+        <engine:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 30px;">
+            <engine:Button text="ALL" name="ALL" class="filter_button filter_button_active" style="width: 95px;" />
+            <engine:Button text="COMMON" name="COMMON" class="filter_button" style="font-size: 24px; width: 110px;" />
+            <engine:Button text="RARE" name="RARE" class="filter_button" style="font-size: 24px; width: 90px;" />
+            <engine:Button text="LEGENDARY" name="LEGENDARY" class="filter_button" style="width: 130px; font-size: 24px;" />
+            <engine:Button text="EPIC" name="EPIC" class="filter_button" style="font-size: 24px; width: 90px;" />
+            <engine:Button text="UNIQUE" name="UNIQUE" class="filter_button" style="font-size: 24px; width: 110px;" />
+            <engine:Button text="SPECIAL" name="SPECIAL" class="filter_button" style="font-size: 24px; width: 110px;" />
+        </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

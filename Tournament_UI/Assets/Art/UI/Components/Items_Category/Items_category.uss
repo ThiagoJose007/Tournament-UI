@@ -1,21 +1,13 @@
 .item_container {
     flex-grow: 1;
+    flex-basis: auto;
     width: 223px;
     height: 294px;
     max-height: 294px;
     max-width: 224px;
-    border-top-width: 4px;
-    border-right-width: 4px;
-    border-bottom-width: 4px;
-    border-left-width: 4px;
-    border-top-left-radius: 32px;
-    border-top-right-radius: 32px;
-    border-bottom-right-radius: 32px;
-    border-bottom-left-radius: 32px;
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
+    border-width: 4px;
+    border-radius: 32px;
+    border-color: rgb(0, 0, 0);
     background-image: url("project://database/Assets/Art/Sprites/item%201.png?fileID=2800000&guid=72fd421bb9056b14b844f312ab581d5d&type=3#item 1");
     background-size: 200% 200%;
     text-shadow: 0 0 0 rgba(255, 255, 255, 0);
@@ -88,6 +80,8 @@
 
 .img_rarity {
     flex-grow: 1;
+    width: 5%;
+    height: 80%;
     background-image: url("project://database/Assets/Art/Sprites/ph_fire-bold.png?fileID=21300000&guid=899198636832a8b449eb05002fe701e2&type=3#ph_fire-bold");
     background-size: 80% 80%;
 }
@@ -95,7 +89,7 @@
 .text_rarity {
     color: rgb(255, 255, 255);
     -unity-font-definition: url("project://database/Assets/Art/Fonts/Rajdhani-Bold%20SDF.asset?fileID=11400000&guid=4667bdbfc81df204aa364be4dca76ab8&type=2#Rajdhani-Bold SDF");
-    font-size: 24px;
+    font-size: 100%;
     -unity-text-align: middle-left;
     text-shadow: 0 20px 3px rgba(255, 255, 255, 0);
     -unity-text-outline-color: rgb(0, 0, 0);

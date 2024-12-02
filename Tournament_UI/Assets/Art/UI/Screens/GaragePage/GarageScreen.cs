@@ -9,6 +9,7 @@ public class GarageScreen : MonoBehaviour
     public VisualTreeAsset buttonCategoryUXML; // O UXML do botão
     public VisualTreeAsset Select_buttonUXML;
     public VisualTreeAsset ItemContainerUXML;
+    public VisualTreeAsset FilterUXML;
     public VisualTreeAsset itemTemplate;
     public List<Item> items;
     private VisualElement currentlyActiveButton;
@@ -30,10 +31,14 @@ public class GarageScreen : MonoBehaviour
         VisualElement select_button = Select_buttonUXML.Instantiate();
         uiDocument.rootVisualElement.Q("Aba_Choose").Add(select_button);
 
+        var Button_active = select_button.Q<VisualElement>("Button");
+        Button_active.AddToClassList("select_button-active");
+
+
         VisualElement itemContainer = ItemContainerUXML.Instantiate();
         uiDocument.rootVisualElement.Q("Inventory").Add(itemContainer);
         var ContainerText = itemContainer.Q<Label>("Name_inventory");
-        ContainerText.text = "Skins";
+
 
         // Crie e personalize os botões
         for (int i = 0; i < buttonTexts.Length; i++)
@@ -61,6 +66,7 @@ public class GarageScreen : MonoBehaviour
             if (i == 0)
             {
                 buttonbackground.AddToClassList("button_category-active");
+                buttonText.text = buttonTexts[i];
             }
 
             // Registrar o evento de clique no botão
@@ -85,6 +91,8 @@ public class GarageScreen : MonoBehaviour
 
         // Localiza o contêiner onde os itens serão adicionados
         VisualElement Inventory = uiDocument.rootVisualElement.Q("ItemContainer");
+        VisualElement Filter = FilterUXML.Instantiate();
+        uiDocument.rootVisualElement.Q("Filter").Add(Filter);
         foreach (Item item in items)
         {
             // Instancia um novo elemento a partir do template

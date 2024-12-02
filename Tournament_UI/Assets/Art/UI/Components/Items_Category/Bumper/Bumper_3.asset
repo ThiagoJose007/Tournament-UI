@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba55f792298d764687c8523b554bc07, type: 3}
+  m_Name: Bumper_3
+  m_EditorClassIdentifier: 
+  displayName: Bumper_2
+  Item_body: {fileID: 21300000, guid: ffc377b1f05f5fe48a830ebfb186e796, type: 3}
+  img_rarity: {fileID: 21300000, guid: fc4d4a75e268b0040ad9f71601cc64ab, type: 3}
+  text_rarity: RARE
+  car_effect: {fileID: 21300000, guid: e2f454045d9e7f04f9552d72c8942844, type: 3}
+  car_img: {fileID: 21300000, guid: 90921e29d19e41b468c91da9440e853d, type: 3}

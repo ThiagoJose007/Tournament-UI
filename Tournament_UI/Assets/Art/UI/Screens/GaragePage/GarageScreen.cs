@@ -71,6 +71,11 @@ public class GarageScreen : MonoBehaviour
                 UpdateNameContainer(buttonName);
                 UpdateItemContainer(items); // Mostra os itens da primeira categoria por padrão
             }
+            if (buttonName == "Color" || buttonName == "Spoiler")
+            {
+                buttonElement.SetEnabled(false); // Desativa o botão
+                buttonElement.AddToClassList("button-disabled"); // Adiciona uma classe CSS para indicar que o botão está desativado
+            }
 
             // Registrar evento de clique no botão
             buttonElement.RegisterCallback<ClickEvent>(evt =>
@@ -128,12 +133,14 @@ public class GarageScreen : MonoBehaviour
     {
         // Localiza o contêiner de itens
         var inventory = uiDocument.rootVisualElement.Q("ItemContainer");
+
         if (inventory == null)
         {
             Debug.LogError("Elemento 'ItemContainer' não encontrado!");
             return;
         }
 
+        inventory.style.flexGrow = 1;
         // Limpa os itens existentes
         inventory.Clear();
 

@@ -507,12 +507,24 @@ MonoBehaviour:
   wheelItems:
   - {fileID: 11400000, guid: f68af605b0a01ef44880ae20ee731387, type: 2}
   - {fileID: 11400000, guid: 35e9bcd0c3be10c4fb81d9e42b6c3779, type: 2}
+  - {fileID: 11400000, guid: b440c5840b971444b9bf3282a961c37d, type: 2}
+  - {fileID: 11400000, guid: f27d47db5aed581479fe82dff9e592aa, type: 2}
+  - {fileID: 11400000, guid: 9cd24e56a2c86c845ba456237593bbd3, type: 2}
+  - {fileID: 11400000, guid: 6c1937613f1f40449928eac92ea5c555, type: 2}
   accessoryItems:
   - {fileID: 11400000, guid: 5f99f3efa5878cb4ca8d71e3c4184124, type: 2}
   - {fileID: 11400000, guid: 85c914e86414aca40b6a51dddeebb6ee, type: 2}
+  - {fileID: 11400000, guid: aabf9c41b10ec03438258728c0781684, type: 2}
+  - {fileID: 11400000, guid: d802e3880c5f87a4daec5c1f52445cee, type: 2}
+  - {fileID: 11400000, guid: a6ffc58cf2332b24a83c378e1593e84d, type: 2}
+  - {fileID: 11400000, guid: 80d3b23ed8ff3de44a747a35a22b2fc0, type: 2}
   bumperItems:
   - {fileID: 11400000, guid: e2536d2359452534685890257fbb7102, type: 2}
   - {fileID: 11400000, guid: 14de84d857fe19740ac18a7fc48f7e49, type: 2}
+  - {fileID: 11400000, guid: 3e558937475e54743bde12add1a240ce, type: 2}
+  - {fileID: 11400000, guid: 235a5e3849138e34c90f540c5ab27538, type: 2}
+  - {fileID: 11400000, guid: edf59598a4732a9469ccfb6ea444e6e5, type: 2}
+  - {fileID: 11400000, guid: 88e82228a3c3a6c47b575018105c47d3, type: 2}
   buttonImages:
   - {fileID: 21300000, guid: c8afc29c80f933d48b33743c9b2c0bcf, type: 3}
   - {fileID: 21300000, guid: c761eb4c200d92841a3a7f3a9e64f672, type: 3}
